@@ -1,0 +1,9 @@
+Changes file for preact-demo-client-mojolicious
+
+1.1.0 2014.04.30
+
+- Added echo of received parameters on on_edit hook, so received parameters are visualized to clarify the difference between serialized and received parameters
+
+1.0.0 2014.04.23
+
+- Initial release
