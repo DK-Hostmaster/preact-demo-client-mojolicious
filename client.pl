@@ -158,9 +158,10 @@ get '/got_edit' => sub {
 
     $self->render(
         'got_edit',
-        params  => $params,
-        domains => $sorted_domain_keys,
-        version => $VERSION
+        params         => $params,
+        domains        => $sorted_domain_keys,
+        version        => $VERSION,
+        request_params => $request_params,
     );
 };
 
@@ -327,6 +328,22 @@ __DATA__
 <div class="alert alert-info">
 <strong>User requests additional edit</strong>
 </div>
+
+<% my @keys = sort (keys %{$request_params}); %>
+
+<h3>Received parameters:</h3>
+<p>
+<table class="table table-striped">
+  <thead>
+    <tr><th>Parameter</th><th>Value</th></tr>
+  </thead>
+  <tbody>
+  % foreach my $p (@keys) {
+    <tr><td>[<code><%= $p %></code>]</td><td><%= $params->{$p} %></td></tr>
+  % }
+  </tbody>
+</table>
+</p>
 
 %= include 'edit';
 
