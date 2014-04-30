@@ -8,7 +8,7 @@ use Time::HiRes qw(gettimeofday);
 use Digest;
 use 5.006;
 
-our $VERSION = '1.0.0';
+our $VERSION = '1.1.0';
 
 Readonly::Scalar my $endpoint => 'https://preact-sandbox.dk-hostmaster.dk/';
 
