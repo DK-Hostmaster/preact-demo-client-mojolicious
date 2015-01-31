@@ -4,7 +4,7 @@ DK Hostmaster pre-activation service demo client
 
 # VERSION
 
-This documentation describes version 1.0.0
+This documentation describes version 2.0.0
 
 # USAGE
 
@@ -16,33 +16,25 @@ Open your browser at:
 
 # DEPENDENCIES
 
-This client is implemented using Mojolicious::Lite in addition the following
-Perl modules are used all available from CPAN.
+This client is implemented using [Mojolicious::Lite][https://metacpan.org/pod/Mojolicious::Lite] in addition the following Perl modules are used all available from CPAN.
 
-- Readonly
-- Time::HiRes
-- Digest
+- [Readonly][https://metacpan.org/pod/Readonly]
+- [Time::HiRes][https://metacpan.org/pod/Time::HiRes]
+- [Digest][https://metacpan.org/pod/Digest]
 
-In addition to the Perl modules, the client uses Twitter Bootstrap and hereby jQuery.
-These are automatically downloaded via CDNs and are not distributed with the client
-software.
+In addition to the Perl modules, the client uses Twitter Bootstrap and hereby jQuery. These are automatically downloaded via CDNs and are not distributed with the client software.
 
 - http://getbootstrap.com/
 
 # SEE ALSO
 
-The main site for this client is the Github repository.
+The main site for this client is the [Github repository][https://github.com/DK-Hostmaster/preact-demo-client-mojolicious].
 
-- https://github.com/DK-Hostmaster/preact-demo-client-mojolicious
-
-For information on the service, please refer to the documentation page with
-DK Hostmaster
-
-- https://www.dk-hostmaster.dk/english/technical-administration/tech-notes/pre-activation/
+For information on the service, please refer to [the specification][https://github.com/DK-Hostmaster/preactivation-service-specification] from DK Hostmaster or [the service main page with DK Hostmaster][https://www.dk-hostmaster.dk/english/technical-administration/tech-notes/pre-activation/].
 
 # COPYRIGHT
 
-This software is under copyright by DK Hostmaster A/S 2014
+This software is under copyright by DK Hostmaster A/S 2015
 
 # LICENSE
 
