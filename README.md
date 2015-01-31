@@ -16,7 +16,7 @@ Open your browser at:
 
 # DEPENDENCIES
 
-This client is implemented using [Mojolicious::Lite](https://metacpan.org/pod/Mojolicious::Lite) in addition the following Perl modules are used all available from CPAN.
+The client is implemented using [Mojolicious::Lite](https://metacpan.org/pod/Mojolicious::Lite) in addition the following Perl modules are used all available from CPAN.
 
 - [Readonly](https://metacpan.org/pod/Readonly)
 - [Time::HiRes](https://metacpan.org/pod/Time::HiRes)
