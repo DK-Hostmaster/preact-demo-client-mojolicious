@@ -35,6 +35,7 @@ get '/' => sub {
         'registrar.url.on_reject' => "$own_base_url/got_rejected",    # ditto
         'registrar.url.on_error'  => "$own_base_url/got_error",       # ditto
         'registrar.url.on_edit'   => "$own_base_url/got_edit",        # ditto
+        'registrar.url.on_fail'   => "$own_base_url/got_fail",        # ditto
         'registrar.transactionid' => $transactionid,    # generated id
         'registrar.reference'     => '',
         'registrant.userid' => 'DKHM1-DK',    # mathes sandbox environment
@@ -132,6 +133,16 @@ get '/got_rejected' => sub {
     my $self = shift;
     $self->render(
         'got_rejected',
+        params  => $self->req->params->to_hash,
+        version => $VERSION
+    );
+};
+
+# call-back hook for failed requests (validation exhaustion)
+get '/got_fail' => sub {
+    my $self = shift;
+    $self->render(
+        'got_fail',
         params  => $self->req->params->to_hash,
         version => $VERSION
     );
@@ -308,6 +319,20 @@ __DATA__
 
 <button type="button" onclick="window.history.go(-2);" class="btn btn-default">Edit request</button>
 
+@@ got_fail.html.ep
+% layout 'default', title 'Accepted: on_accept callback';
+<div class="alert alert-warning">
+<strong>Too bad, user validation attempts got exhausted</strong>
+</div>
+
+<form class="form-horizontal" role="form" action="/" method="GET" accept-charset="UTF-8">
+
+%= include 'param_list', params => $params;
+
+<button class="btn btn-default" type="submit">Start over</button>
+
+</form>
+
 @@ got_accepted.html.ep
 % layout 'default', title 'Accepted: on_accept callback';
 <div class="alert alert-success">
@@ -461,6 +486,18 @@ __DATA__
         </div>
       </div>
       <div class="col-sm-6"><p class="help-block">URL for receiving call-backs on data error [<code>registrar.url.on_error</code>]</p></div>
+    </div>
+    </div>
+
+    <div class="form-group">
+    <div class="control-group">
+      <label class="control-label col-sm-2" for="registrar.url.on_fail">Failure handler:</label>
+      <div class="controls">
+        <div class="col-sm-4">
+        <input class="form-control" type="text" placeholder="registrar.url.on_fail" name="registrar.url.on_fail" value="<%= $params->{'registrar.url.on_fail'} %>">
+        </div>
+      </div>
+      <div class="col-sm-6"><p class="help-block">URL for receiving call-backs on exhaustion of validation attempts [<code>registrar.url.on_fail</code>]</p></div>
     </div>
     </div>
 
