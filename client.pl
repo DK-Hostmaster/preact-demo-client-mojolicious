@@ -40,7 +40,6 @@ get '/' => sub {
         'registrar.url.on_edit'   => "$own_base_url/got_edit",        # ditto
         'registrar.transactionid' => $transactionid,    # generated id
         'registrar.reference'     => '',
-        'registrar.language'      => 'en',
         'registrant.userid' => 'DKHM1-DK',    # mathes sandbox environment
         'domain.1.name'  => "test1$transactionid.dk",     # dummy domain
         'domain.2.name'  => "test2$transactionid.dk",     # ditto
@@ -489,24 +488,6 @@ __DATA__
         </div>
       </div>
       <div class="col-sm-6"><p class="help-block">Registrars reference [<code>registrar.reference</code>]</p></div>
-    </div>
-    </div>
-
-    <% my $language = $params->{'registrar.language'}; %>
-
-    <div class="form-group">
-    <div class="control-group">
-      <label class="control-label col-sm-2" for="registrar.language">Presentation Language:</label>
-
-      <div class="controls">
-      <div class="col-sm-4">
-      <input class="radio-inline input-sm" type="radio" name="registrar.language" value="da"<%= 'checked="checked"' if ($language eq 'da') %>> Dansk</input>
-      <input class="radio-inline input-sm" type="radio" name="registrar.language" value="en"<%= 'checked="checked"' if ($language eq 'en') %>> English</input>
-      <input class="radio-inline input-sm" type="radio" name="registrar.language" value=""<%= 'checked="checked"' if ($language eq '') %>> <i>(None)</i></input>
-      </div>
-      </div>
-      <div class="col-sm-6"><p class="help-block">The <b>pre-activation service</b> will be presented in this language to the user. Id must be in ISO 639-1, meaning <code>da</code> or <code>en</code> (<a href="https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes">reference</a>) [<code>registrar.language</code>]</p>
-      </div>
     </div>
     </div>
 
