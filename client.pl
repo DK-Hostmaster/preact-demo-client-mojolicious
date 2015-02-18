@@ -258,8 +258,6 @@ Perl modules are used all available from CPAN.
 
 =over
 
-=item * Readonly
-
 =item * Time::HiRes
 
 =item * Digest
