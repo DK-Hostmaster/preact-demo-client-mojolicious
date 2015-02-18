@@ -3,14 +3,11 @@
 use strict;
 use warnings;
 use Mojolicious::Lite;
-use Readonly;
 use Time::HiRes qw(gettimeofday);
 use Digest;
 use 5.006;
 
 our $VERSION = '2.0.0';
-
-Readonly::Scalar my $endpoint => 'https://preact-sandbox.dk-hostmaster.dk/';
 
 # Mojolicious has okay exception handling for now
 ## no critic (ErrorHandling::RequireUseOfExceptions)
@@ -56,11 +53,18 @@ get '/' => sub {
     # We sort the domains by key
     my $sorted_domain_keys = _sort_domain_keys($params);
 
+    # Endpoints
+    my @endpoints = qw(
+      https://preact-sandbox.dk-hostmaster.dk/da
+      https://preact-sandbox.dk-hostmaster.dk/en
+    );
+
     $self->render(
         'index',
-        params  => $params,
-        domains => $sorted_domain_keys,
-        version => $VERSION
+        params    => $params,
+        domains   => $sorted_domain_keys,
+        endpoints => \@endpoints,
+        version   => $VERSION
     );
 };
 
@@ -70,11 +74,21 @@ post '/prepare' => sub {
 
     my $params = $self->req->params->to_hash;
 
-# We sort the domains by key, order of the domains (keys) are important for the checksum
-# calculation, see below
+    # Extracting the client.endpoint we need for the client application
+    my $endpoint = $params->{'client.endpoint'};
+
+    # Deleting client parameters, since this are not allowed by the protocol
+    foreach my $key (keys %{$params}) {
+        if ($key =~  m/\Aclient\.\w+\z/) {
+            delete $params->{$key};
+        }
+    }
+
+    # We sort the domains by key, order of the domains (keys) are important for the checksum
+    # calculation, see below
     my $sorted_domain_keys = _sort_domain_keys($params);
 
-# We make all domainnames lower-case and create a list based on the sorted keys
+    # We make all domainnames lower-case and create a list based on the sorted keys
     my @sorted_domains;
     foreach my $key ( @{$sorted_domain_keys} ) {
         if ( $params->{$key} ) {
@@ -404,6 +418,25 @@ __DATA__
 
 @@ edit.html.ep
 <form class="form-horizontal" role="form" action="/prepare" method="POST" accept-charset="UTF-8">
+
+
+    <legend>Client</legend>
+
+    <div class="form-group">
+    <div class="control-group">
+      <label class="control-label col-sm-2" for="registrar.keyid">End-point:</label>
+      <div class="controls">
+        <div class="col-sm-5">
+        <select class="form-control" name="client.endpoint">
+          <% foreach my $endpoint (@{$endpoints}) { %>
+          <option><%= $endpoint %></option>
+          <% }; %>
+        </select>
+        </div>
+      </div>
+      <div class="col-sm-5"><p class="help-block">DK Hostmaster sandbox endpoints, language specified in URL. Defaults to Danish (da) if not specified on URL.</p></div>
+    </div>
+    </div>
 
     <legend>Registrar</legend>
 
