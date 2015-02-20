@@ -8,7 +8,7 @@ This documentation describes version 2.0.0
 
 # USAGE
 
-    $ morbo  client.pl
+    $ morbo -l https://*:3000 client.pl
 
 Open your browser at:
 
