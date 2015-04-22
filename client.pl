@@ -318,9 +318,9 @@ __DATA__
 <button type="button" onclick="window.history.go(-2);" class="btn btn-default">Edit request</button>
 
 @@ got_fail.html.ep
-% layout 'default', title 'Accepted: on_accept callback';
+% layout 'default', title 'Accepted: on_fail callback';
 <div class="alert alert-warning">
-<strong>Too bad, user validation attempts got exhausted</strong>
+<strong>Too bad, user validation attempts got exhausted or the user bailed</strong>
 </div>
 
 <form class="form-horizontal" role="form" action="/" method="GET" accept-charset="UTF-8">
