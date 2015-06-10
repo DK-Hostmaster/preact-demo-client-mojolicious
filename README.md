@@ -4,7 +4,7 @@ DK Hostmaster pre-activation service demo client
 
 # VERSION
 
-This documentation describes version 2.0.0
+This documentation describes version 2.0.X
 
 # USAGE
 
@@ -14,12 +14,34 @@ Open your browser at:
 
     http://127.0.0.1:3000/
 
+# INSTALLATION
+
+This client requires a [Perl](http://en.wikipedia.org/wiki/Perl) interpreter.
+
+In addition you need to install the [Mojolicious framework](http://mojolicio.us/).
+
+```
+$ curl -L https://cpanmin.us | perl - -M https://cpan.metacpan.org -n Mojolicious
+```
+
+Then you need to install the dependencies described below.
+
 # DEPENDENCIES
 
 The client is implemented using [Mojolicious::Lite](https://metacpan.org/pod/Mojolicious::Lite) in addition the following Perl modules are used all available from CPAN.
 
-- [Time::HiRes](https://metacpan.org/pod/Time::HiRes)
-- [Digest](https://metacpan.org/pod/Digest)
+- [Mojolicious](https://metacpan.org/pod/Mojolicious) installed in the step above (MetaCPAN)
+- [IO::Socket::SSL](https://metacpan.org/pod/IO::Socket::SSL) (MetaCPAN)
+- [Time::HiRes](https://metacpan.org/pod/Time::HiRes) (MetaCPAN, in core since Perl version 5.7.3)
+- [Digest](https://metacpan.org/pod/Digest) (MetaCPAN), in core since Perl version 5.7.3)
+
+A `cpanfile` and related `cpanfile.snapshot` are included in the repository and can be used in conjunction with [Carton](https://metacpan.org/pod/Carton) if you want to evaluate the client without interfering with your existing Perl installation
+
+```
+$ carton
+
+$ carton exec morbo -l https://*:3000 client.pl
+```
 
 In addition to the Perl modules, the client uses Twitter Bootstrap and hereby jQuery. These are automatically downloaded via CDNs and are not distributed with the client software.
 
