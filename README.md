@@ -18,13 +18,7 @@ Open your browser at:
 
 This client requires a [Perl](http://en.wikipedia.org/wiki/Perl) interpreter.
 
-In addition you need to install the [Mojolicious framework](http://mojolicio.us/).
-
-```
-$ curl -L https://cpanmin.us | perl - -M https://cpan.metacpan.org -n Mojolicious
-```
-
-Then you need to install the dependencies described below.
+You need to install the [Mojolicious framework](http://mojolicio.us/) and then you need to install the dependencies listed below.
 
 # DEPENDENCIES
 
