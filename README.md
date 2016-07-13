@@ -4,6 +4,7 @@
 
 - [VERSION](#version)
 - [USAGE](#usage)
+    - [Using `docker`](#using-docker)
 - [INSTALLATION](#installation)
 - [DEPENDENCIES](#dependencies)
 - [DIAGNOSTICS](#diagnostics)
@@ -13,6 +14,8 @@
 - [LICENSE](#license)
 
 <!-- /MarkdownTOC -->
+
+![screenshot](images/screenshot.png)
 
 <a name="version"></a>
 # VERSION
@@ -27,6 +30,20 @@ This documentation describes version 2.0.X
 Open your browser at:
 
     https://127.0.0.1:3000/
+
+
+<a name="using-docker"></a>
+## Using `docker`
+
+The application can be used using `docker`
+
+    $ docker build -t preact-demo-client .
+
+    $ docker run --rm -p 3000:3000 preact-demo-client
+
+Open your browser at:
+
+    https://localhost:3000/
 
 <a name="installation"></a>
 # INSTALLATION
