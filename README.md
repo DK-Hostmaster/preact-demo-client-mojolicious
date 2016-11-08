@@ -88,12 +88,12 @@ If you are observing errors, where each request report a problem with a new para
 
 The main site for this client is the [Github repository](https://github.com/DK-Hostmaster/preact-demo-client-mojolicious).
 
-For information on the service, please refer to [the specification](https://github.com/DK-Hostmaster/preactivation-service-specification) from DK Hostmaster or [the service main page with DK Hostmaster](https://www.dk-hostmaster.dk/english/technical-administration/tech-notes/pre-activation/).
+For information on the service, please refer to [the specification](https://github.com/DK-Hostmaster/preactivation-service-specification) from DK Hostmaster or [the service main page with DK Hostmaster](https://www.dk-hostmaster.dk/en/pre-activation).
 
 <a name="copyright"></a>
 # COPYRIGHT
 
-This software is under copyright by DK Hostmaster A/S 2015
+This software is under copyright by DK Hostmaster A/S 2015-2016
 
 <a name="license"></a>
 # LICENSE
