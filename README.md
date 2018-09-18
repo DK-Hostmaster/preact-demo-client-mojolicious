@@ -1,3 +1,15 @@
+---
+
+:warning:  TAKE NOTICE!  :warning:
+
+This has been decommissioned by the end of August 2018.
+
+Please contact us if you have any questions:
+
+`tech@dk-hostmaster.dk`
+
+---
+
 # DK Hostmaster pre-activation service demo client
 
 <!-- MarkdownTOC -->
